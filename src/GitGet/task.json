@@ -8,9 +8,9 @@
     "author": "Seva Alekseyev",
     "version":
     {
-        "Major": 0,
-        "Minor": 50,
-        "Patch": 9
+        "Major": 1,
+        "Minor": 0,
+        "Patch": 0
     },
     "demands": [],
     "instanceNameFormat": "Get $(GitPath) into $(LocalPath)",

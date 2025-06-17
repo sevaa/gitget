@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "gitget",
-    "version": "0.50.3",
+    "version": "1.0.0",
     "name": "Git Get",
     "description": "Task for getting items from Git source control",
     "publisher": "sevaalekseyev",
