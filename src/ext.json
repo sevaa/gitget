@@ -1,0 +1,45 @@
+{
+    "manifestVersion": 1,
+    "id": "gitget",
+    "version": "0.50.3",
+    "name": "Git Get",
+    "description": "Task for getting items from Git source control",
+    "publisher": "sevaalekseyev",
+    "targets": [{"id": "Microsoft.VisualStudio.Services"}],
+    "categories": ["Azure Pipelines"],
+    "tags": ["git","get","Source Control"],
+    "repository":
+    {
+        "type": "git",
+        "uri": "https://github.com/sevaa/gitget/"
+    },
+    "links":
+    {
+        "support": {"uri": "https://github.com/sevaa/gitget/issues"},
+        "repository": {"uri": "https://github.com/sevaa/gitget/"}
+    },
+    "icons": {"default": "img/logo.png"},
+    "galleryFlags": ["Public"],
+    "content":
+    {
+        "details": { "path" : "readme.md" },
+        "license": { "path" : "license.md" },
+        "privacypolicy": { "path" : "privacy.md" }
+    },
+    "contributions":
+    [
+        {
+            "id": "gitget",
+            "type": "ms.vss-distributed-task.task",
+            "targets": ["ms.vss-distributed-task.tasks"],
+            "properties": { "name": "GitGet" }
+        }
+    ],
+    "files":
+    [
+        {"path": "GitGet"},
+        {"path": "img", "addressable": true}
+    ],
+    "scopes": [],
+    "contributionTypes": []
+}

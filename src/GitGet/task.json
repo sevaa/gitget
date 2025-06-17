@@ -1,0 +1,86 @@
+{
+    "id": "3BEBBBAB-E44A-4758-8CEC-A7D95511BDFD",
+    "name": "GitGet",
+    "friendlyName": "Get file(s) from a Git repo",
+    "description": "Gets a file or a folder tree from Azure DevOps Git source control",
+    "category": "Utility",
+    "visibility": ["Build", "Release"],
+    "author": "Seva Alekseyev",
+    "version":
+    {
+        "Major": 0,
+        "Minor": 50,
+        "Patch": 9
+    },
+    "demands": [],
+    "instanceNameFormat": "Get $(GitPath) into $(LocalPath)",
+    "execution":
+    {
+        "Node":
+        {
+            "target": "$(currentDirectory)/GitGet.js",
+            "argumentFormat": ""
+        },
+        "Node10":
+        {
+            "target": "$(currentDirectory)/GitGet.js",
+            "argumentFormat": ""
+        },
+        "Node16":
+        {
+            "target": "$(currentDirectory)/GitGet.js",
+            "argumentFormat": ""
+        }        
+    },
+    "groups": [],
+    "inputs":
+    [
+        {
+            "name": "Repo",
+            "label": "Repository:",
+            "type": "pickList",
+            "required": false,
+            "helpMarkDown": "The Git repo to use - leave blank if there is only one in the current project.",
+            "properties": {
+                "EditableOptions": "False",
+                "DisableManageLink": "True"
+            }
+        },
+        {
+            "name": "GitPath",
+            "type": "string",
+            "label": "Source control path:",
+            "required": true,
+            "defaultValue": "",
+            "helpMarkDown": "Absolute Git path of the file or folder to get, starting with /. Folders will be downloaded recursively."
+        },
+        {
+            "name": "LocalPath",
+            "type": "string",
+            "label": "Target path:",
+            "required": false,
+            "defaultValue": "",
+            "helpMarkDown": "Path to store the Git item(s). If downloading a file, it can be a file name or an existing folder name. If getting a folder and the path doesn't exist, it will be created."
+        },
+        {
+            "name": "Branch",
+            "type": "string",
+            "label": "Branch/tag/commit:",
+            "required": false,
+            "defaultValue": "",
+            "helpMarkDown": "Branch name, or a tag name, or SHA1 hash of a commit (in hex, case insensitive). If blank, the default branch of the repo will be used."
+        }
+    ],
+    "dataSourceBindings":
+    [
+        {
+            "endpointId": "tfs:teamfoundation",
+            "target": "Repo",
+            "resultTemplate": "{ \"Value\" : \"{{{id}}}\", \"DisplayValue\" : \"{{{name}}}\" }",
+            "endpointUrl": "{{endpoint.url}}/_apis/git/repositories",
+            "resultSelector": "jsonpath:$.value[*]"
+        }
+    ]
+}
+
+
