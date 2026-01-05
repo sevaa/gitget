@@ -10,7 +10,7 @@
     {
         "Major": 1,
         "Minor": 0,
-        "Patch": 0
+        "Patch": 1
     },
     "demands": [],
     "instanceNameFormat": "Get $(GitPath) into $(LocalPath)",
@@ -30,7 +30,17 @@
         {
             "target": "$(currentDirectory)/GitGet.js",
             "argumentFormat": ""
-        }        
+        },
+        "Node20_1":
+        {
+            "target": "$(currentDirectory)/GitGet.js",
+            "argumentFormat": ""
+        },
+        "Node24":
+        {
+            "target": "$(currentDirectory)/GitGet.js",
+            "argumentFormat": ""
+        }         
     },
     "groups": [],
     "inputs":
